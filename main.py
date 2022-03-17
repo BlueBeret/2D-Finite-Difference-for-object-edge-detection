@@ -50,7 +50,6 @@ def predictObjectEdge(img, boundary):
 if __name__ == '__main__':
     # sunflower object
     for i in range(5,26,5):
-        break;
         img = Image.open('sample_sunflower.jpg')
         img_result = combineImage(img,predictObjectEdge(img, i))
         img_result.save('./result/result_sunflower_' + str(i) + '.jpg')
@@ -58,7 +57,6 @@ if __name__ == '__main__':
     # alpaca object
 
     for i in range(5,26,5):
-        break
         img = Image.open('./sample_alpaca.jpg')
         img_result = combineImage(img, predictObjectEdge(img, i))
         img_result.save('./result/result_alpaca_'+str(i)+'.jpg')
