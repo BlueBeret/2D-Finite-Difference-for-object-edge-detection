@@ -17,7 +17,7 @@ def combineImage(img1, img2):
 
 # fungsi utama, img adalah gambar yang ingin diteteksi
 # boundary adalah batas penentu good value percobaan
-# yang saya lakukan adalah antara 5-20
+# yang saya lakukan adalah antara 5-50
 
 def predictObjectEdge(img, boundary):
     # mengubah menjadi greyscale
@@ -49,38 +49,22 @@ def predictObjectEdge(img, boundary):
 
 if __name__ == '__main__':
     # sunflower object
-    if (False):
-        img = Image.open('./sample_sunflower.jpg')
-        img_result = combineImage(img, predictObjectEdge(img, 20))
-        img_result.show()
-        img_result.save('./result/result_20.jpg')
-        
-        img_result = combineImage(img, predictObjectEdge(img, 15))
-        img_result.show()
-        img_result.save('./result/result_15.jpg')
-
-        img_result = combineImage(img, predictObjectEdge(img, 10))
-        img_result.show()
-        img_result.save('./result/result_10.jpg')
-
-        img_result = combineImage(img, predictObjectEdge(img, 5))
-        img_result.show()
-        img_result.save('./result/result_5.jpg')
+    for i in range(5,26,5):
+        break;
+        img = Image.open('sample_sunflower.jpg')
+        img_result = combineImage(img,predictObjectEdge(img, i))
+        img_result.save('./result/result_sunflower_' + str(i) + '.jpg')
 
     # alpaca object
-    img = Image.open('./sample_alpaca.jpg')
-    img_result = combineImage(img, predictObjectEdge(img, 20))
-    img_result.show()
-    img_result.save('./result/result_alpaca_20.jpg')
 
-    img_result = combineImage(img, predictObjectEdge(img, 15))
-    img_result.show()
-    img_result.save('./result/result_alpaca_15.jpg')
+    for i in range(5,26,5):
+        break
+        img = Image.open('./sample_alpaca.jpg')
+        img_result = combineImage(img, predictObjectEdge(img, i))
+        img_result.save('./result/result_alpaca_'+str(i)+'.jpg')
 
-    img_result = combineImage(img, predictObjectEdge(img, 10))
-    img_result.show()
-    img_result.save('./result/result_alpaca_10.jpg')
-
-    img_result = combineImage(img, predictObjectEdge(img, 5))
-    img_result.show()
-    img_result.save('./result/result_alpaca_5.jpg')
+    # person object
+    for i in range(5,26,5):
+        img = Image.open('./sample_person.jpeg')
+        img_result = combineImage(img, predictObjectEdge(img, i))
+        img_result.save('./result/result_person_'+str(i)+'.jpg')
